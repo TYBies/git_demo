@@ -60,7 +60,7 @@ jobs:
     name: deploy
     runs-on: ubuntu-latest
     steps:
-      - name: executing remote ssh commands using password
+      - name: executing remote ssh commands using passwordgit_demo
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOSTNAME }}
@@ -74,7 +74,7 @@ jobs:
             sudo docker rmi tatapong/dst-fastapi:latest
             sleep 10
             # Run the new container with the updated image
-            sudo docker run -d -p 9000:80 --name fastapi tatapong/dst-fastapi:latest
+            sudo docker run -d -p 9000:80 --name fastapi toyin/dst-fastapi:latest
             sudo docker ps
             sleep 10
             # Test the image by hitting the localhost endpoint
