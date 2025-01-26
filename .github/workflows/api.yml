@@ -69,11 +69,11 @@ jobs:
           port: 22
           script: |
             # Remove the previous container
-            #sudo docker rm -f fastapi
+            sudo docker rm -f fastapi
             # Remove the previous Docker image
-            #sudo docker rmi tatapong/dst-fastapi:latest
+            sudo docker rmi tatapong/dst-fastapi:latest
             sleep 10
-            # Run the new container with the updated image
+            #Run the new container with the updated image
             sudo docker run -d -p 9000:80 --name fastapi tybaloo/github_image:latest
             sudo docker ps
             sleep 10
