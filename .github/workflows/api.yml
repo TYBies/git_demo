@@ -7,8 +7,8 @@ on:
     branches: [ master ]
 
 env:
-  dockerhub_id: tatapong
-  dockerhub_repository: dst-fastapi
+  dockerhub_id: tybaloo
+  dockerhub_repository: github_image
   dockerhub_latest: latest
 
 jobs:
@@ -69,12 +69,12 @@ jobs:
           port: 22
           script: |
             # Remove the previous container
-            sudo docker rm -f fastapi
+            #sudo docker rm -f fastapi
             # Remove the previous Docker image
-            sudo docker rmi tatapong/dst-fastapi:latest
+            #sudo docker rmi tatapong/dst-fastapi:latest
             sleep 10
             # Run the new container with the updated image
-            sudo docker run -d -p 9000:80 --name fastapi toyin/dst-fastapi:latest
+            sudo docker run -d -p 9000:80 --name fastapi tybaloo/github_image:latest
             sudo docker ps
             sleep 10
             # Test the image by hitting the localhost endpoint
