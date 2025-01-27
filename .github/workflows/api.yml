@@ -61,18 +61,18 @@ jobs:
     name: deploy
     runs-on: ubuntu-latest
     steps:
-      - name: executing remote ssh commands using passwordgit_demo
+      - name: executing remote ssh commands using password
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOSTNAME }}
           username: ${{ secrets.USER_NAME }}
-          key: ${{ secrets.AWS_PRIVATE_KEY }}
+          key: ${{ secrets.AWS_PRIVATE_KEY }}         
           port: 22
           script: |
             # Remove the previous container
             sudo docker rm -f fastapi
             # Remove the previous Docker image
-            sudo docker rmi tatapong/dst-fastapi:latest
+            sudo docker rmi tybaloo/github_image:latest
             sleep 10
             #Run the new container with the updated image
             sudo docker run -d -p 9000:80 --name fastapi tybaloo/github_image:latest
